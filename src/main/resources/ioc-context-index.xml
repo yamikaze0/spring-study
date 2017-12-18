@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="sayHello" name="sayHelloService" class="org.yamikaze.spring.study.ioc.impl.SayHelloServiceImpl"/>
+
+    <bean id="constructorClass" class="org.yamikaze.spring.study.ioc.constructor.ConstructorClass">
+        <constructor-arg index="0" value=""/>
+        <constructor-arg index="1" value="2"/>
+        <constructor-arg index="2" ref="sayHello"/>
+        <constructor-arg index="3">
+            <list>
+                <value>123</value>
+                <value>456</value>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
