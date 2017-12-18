@@ -30,4 +30,22 @@
     <!--                    all      检查所有
                             检查注入的不能为null
     -->
+
+    <!--lookup-method name = "methodName" 通过方法注入 方法必须为public/protected 必须返回值为要注入的bean
+        eg、要注入id为XX的bean，方法为
+        public XX methodName() {
+            //code 不会被执行
+        }
+        配置
+        <lookup-method name = "methodName" ref = XX/>
+    -->
+
+    <!--
+
+        替换方法注入 <replaced-method name = "methodName" replace = "bean">
+                       <arg-type>java.lang.String</arg-type>
+                   </replaced-method>
+                   表示要将<replaced-method>标签外部的bean的methodName替换为bean的方法
+                   其中替换bean要实现MethodReplacer，但不能在替换bean的方法里面调用原方法,会抛出StackOverFlowError
+    -->
 </beans>
