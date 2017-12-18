@@ -48,4 +48,9 @@
                    表示要将<replaced-method>标签外部的bean的methodName替换为bean的方法
                    其中替换bean要实现MethodReplacer，但不能在替换bean的方法里面调用原方法,会抛出StackOverFlowError
     -->
+
+    <!--bean的作用域 有 singleton, prototype, request, session, global session
+        其中singleton范围的bean会被Spring所管理
+        如果要自定义scope，可以实现org.springframework.beans.factory.config.Scope接口
+    -->
 </beans>
