@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <!--lazy-init = false 默认为false 这样会马上初始化，指定为true时只有需要用到bean时才会进行初始化-->
+    <bean id="jioniu" class="org.yamikaze.spring.study.lazy.JioNinImpl" lazy-init="true"/>
+    <!--depends-on = "beanId" 表示在初始化这个bean之前 要先初始化beanId，卸载时要先卸载这个bean才能卸载beanId-->
+    <!--可以指定多个bean，用;或者,分隔-->
+    <bean id="hokage" class="org.yamikaze.spring.study.lazy.HokaGe" depends-on="jioniu">
+        <property name="jioNin" ref="jioniu"/>
+    </bean>
+
+    <!--init-method = "methodName" 初始化运行的方法-->
+    <!--destroy-method = "MethodName" 销毁实例时运行的方法 只有singleton才能,其他范围不一定，但prototype一定不能-->
+    <!--autowire = "byName" 如果当前bean有setXX方法，会根据name注入XX,如果XX不存在不会报错-->
+    <!--            byType  如果当前bean有setXX方法，会根据type注入XX,如果XX不存在不会报错-->
+    <!--默认为no 不会自动注入，只会注入对象类型
+        Objects, 基本类型 & 封装类型
+        不匹配default-autowire-candidates未指定的bean
+        Collection集合类型将根据泛型获取候选bean注入
+    -->
+    <!--dependency-check = "objects" 将检查对象是否注入-->
+    <!--                    simple   将检查基本类型 & 数组-->
+    <!--                    all      检查所有
+                            检查注入的不能为null
+    -->
+</beans>
