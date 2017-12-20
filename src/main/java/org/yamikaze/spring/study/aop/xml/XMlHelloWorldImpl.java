@@ -17,4 +17,10 @@ public class XMlHelloWorldImpl implements HelloWorld{
     public String returnHello(String name) {
         return null;
     }
+
+    @Override
+    public String argsWithAnnotation(HelloWorld helloWorld) {
+        helloWorld.sayHello();
+        return "";
+    }
 }

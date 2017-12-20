@@ -17,4 +17,12 @@ public interface HelloWorld {
      * @return
      */
     String returnHello(String name);
+
+    /**
+     * 测试参数带有注解的方法，这儿注解采用Spring的Service
+     * @param helloWorld
+     * @return
+     */
+    String argsWithAnnotation(HelloWorld helloWorld);
+
 }

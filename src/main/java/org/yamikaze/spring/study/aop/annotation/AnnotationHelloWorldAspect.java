@@ -61,8 +61,86 @@ public class AnnotationHelloWorldAspect {
 
     }
 
-    @AfterReturning(value = "execution(@annotation(java.lang.Override))")
+    /**
+     * 方法上有java.lang.Override注解
+     * 加到实现类的方法上，而不是接口，实现类
+     * 且注解的范围必须是RUNTIME
+     */
+    @Before(value = "@annotation(org.yamikaze.spring.study.aop.TestAnnotation)")
     public void ar() {
         System.out.println("ar");
     }
+
+    /**
+     * beanId以Service结尾的方法
+     */
+    @Before(value = "bean(*Service)")
+    public void bean() {
+        System.out.println("bean");
+    }
+
+    /**
+     * 匹配一个参数带有TestAnnotation的方法
+     * 暂时不知道怎么使用
+     */
+    @Before(value = "@args(org.yamikaze.spring.study.aop.TestAnnotation)")
+    public void args() {
+        System.out.println("@args");
+    }
+
+    /**
+     * 对类上带有TestAnnotation注解的方法有效
+     * 注解放到类上，而不是接口、方法、参数
+     */
+    @Before(value = "@target(org.yamikaze.spring.study.aop.TestAnnotation)")
+    public void target() {
+        System.out.println("target");
+    }
+
+    /**
+     * 只有目标类型持有这个注解就有效
+     * 注解放在类上，而不是接口、方法、参数上
+     */
+    @Before(value = "@within(org.yamikaze.spring.study.aop.WithinAnnotation)")
+    public void within() {
+        System.out.println("within");
+    }
+
+    /**
+     * 匹配参数为String的方法
+     * 区别与@args
+     */
+    @Before(value = "args(java.lang.String)")
+    public void arg() {
+        System.out.println("arg not @args");
+    }
+
+    /**
+     * 匹配实现了HelloWorld接口的类
+     */
+    @Before(value = "target(org.yamikaze.spring.study.aop.HelloWorld)")
+    public void target1() {
+        System.out.println("target not @target");
+    }
+
+    /**
+     * within(org.yamikaze..*) org.yamikaze任意包下的任意方法
+     * within(org.yamikaze.HelloWorld) org.yamikaze.HelloWorld的任意方法
+     * within(org.yamikaze.HelloWorld+) org.yamikaze.HelloWorld类型的任意方法
+     * within(@org.yamikaze.TestAnnotation *) 持有TestAnnotation注解的任意方法
+     */
+    @Before(value = "within(org.yamikaze.spring.study.aop.HelloWorld+)")
+    public void within1() {
+        System.out.println("within not @within");
+    }
+
+    /**
+     * 注解在类上, 与@within保持一致
+     */
+    @Before(value = "within(@org.yamikaze.spring.study.aop.WithinAnnotation *)")
+    public void within2() {
+        System.out.println("within2 not @within");
+    }
+
+
 }
