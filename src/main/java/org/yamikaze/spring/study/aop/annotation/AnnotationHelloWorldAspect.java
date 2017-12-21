@@ -2,6 +2,7 @@ package org.yamikaze.spring.study.aop.annotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -108,9 +109,11 @@ public class AnnotationHelloWorldAspect {
 
     /**
      * 匹配参数为String的方法
-     * 区别与@args
+     * 区别于@args
+     * @Order 表示切面的优先级，优先级高的先执行，值越小，优先级越高
      */
     @Before(value = "args(java.lang.String)")
+    @Order(1)
     public void arg() {
         System.out.println("arg not @args");
     }

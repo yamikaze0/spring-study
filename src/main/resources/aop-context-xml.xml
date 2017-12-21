@@ -15,6 +15,7 @@
     <bean id="xmlAop" class="org.yamikaze.spring.study.aop.xml.XmlAopAspect"/>
     <bean id="xmlHelloWorld" class="org.yamikaze.spring.study.aop.xml.XMlHelloWorldImpl"/>
 
+    <!--<aop:config proxy-target-class = "true"/> 将使用CGLib代理，此时需要导入cglib的包-->
     <aop:config>
         <aop:aspect id = "xmlAspect" ref="xmlAop">
             <!--

@@ -11,12 +11,6 @@
         http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="org.yamikaze.spring.study.aop.annotation"/>
+    <context:component-scan base-package="org.yamikaze.spring.study.senior"/>
     <aop:aspectj-autoproxy/>
-    <!--将使用CGLIB方式进行代理，需要引入CGLIB的jar包，默认是JDK代理
-        如果要代理的类没有实现任何借口，Spring将会使用CGLIB来进行代理
-        下面的配置是强制使用CGLIB来进行代理
-        final修饰的方法不会被代理
-    -->
-    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
 </beans>

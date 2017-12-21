@@ -61,6 +61,24 @@
             <version>1.8.9</version>
         </dependency>
         <!--Aop jar end-->
+
+        <!--dataSource jar start-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.14</version>
+        </dependency>
+        <!--dataSource jar end-->
+
+        <!--Mybatis jar start-->
+        <dependency>
+            <groupId>org.yamikaze</groupId>
+            <artifactId>spring-mybatis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--Mybatis jar end-->
+
+
     </dependencies>
 
 </project>
