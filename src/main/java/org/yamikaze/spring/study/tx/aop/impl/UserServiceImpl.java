@@ -1,11 +1,10 @@
 package org.yamikaze.spring.study.tx.aop.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import org.yamikaze.dao.IUserDao;
 import org.yamikaze.model.User;
-import org.yamikaze.spring.study.tx.aop.UserService;
+import org.yamikaze.spring.study.tx.UserService;
 
 /**
  * @author qinluo
@@ -19,6 +18,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean addUser(User user) {
-        return false;
+        boolean flag = userDao.save(user) == 1;
+        if(flag) {
+            throw new RuntimeException();
+        }
+        return true;
     }
 }

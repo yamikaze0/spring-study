@@ -1,4 +1,4 @@
-package org.yamikaze.spring.study.tx.aop;
+package org.yamikaze.spring.study.tx;
 
 import org.yamikaze.model.User;
 

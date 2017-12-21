@@ -8,32 +8,19 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="org.yamikaze.spring.study.tx.aop"/>
+    <context:component-scan base-package="org.yamikaze.spring.study.tx.annotation"/>
     <import resource="classpath:dataSource.xml"/>
     <!--1、配置事务管理器-->
     <bean id="tx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--2、配置事务管理器属性，哪些方法需要加上事务，事务传播级别，是否是只读的-->
-    <tx:advice id="txAdvice" transaction-manager="tx">
-        <tx:attributes>
-            <tx:method name="query*" propagation="NEVER" read-only="true"/>
-            <tx:method name="select*" propagation="NEVER" read-only="true"/>
-            <tx:method name="*" rollback-for="java.lang.Exception"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <!--3、配置切面，哪些Service需要事务代理-->
-    <aop:config>
-        <aop:pointcut id="allMethods" expression="execution(* org.yamikaze.spring.study.tx.aop..*.*(..))"/>
-        <!--4、设置通知-->
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="allMethods"/>
-    </aop:config>
+    <!--2、打开annotation代理 默认使用JDK动态代理
+        可以指定proxy-target-class = "true" 表示使用cglib代理
+    -->
+    <tx:annotation-driven transaction-manager="tx" />
 </beans>
