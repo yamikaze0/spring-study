@@ -11,6 +11,7 @@ import org.yamikaze.model.User;
 import org.yamikaze.spring.study.tx.UserService;
 
 /**
+ * 编程式事务
  * @author qinluo
  * @date 2017/12/21
  */
