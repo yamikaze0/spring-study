@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.yamikaze.spring.study.ioc.SayHelloService;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 public class IncludeService {

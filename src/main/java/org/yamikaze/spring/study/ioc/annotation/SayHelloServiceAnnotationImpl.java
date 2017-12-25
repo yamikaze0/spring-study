@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.yamikaze.spring.study.ioc.SayHelloService;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 @Service("sayHelloAnnotationServic1e")

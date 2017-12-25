@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 注解Component加入Spring管理
  * 注解Aspect表明这是一个切面
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/20
  */
 
@@ -55,7 +55,7 @@ public class AnnotationHelloWorldAspect {
              */
             obj = pjp.proceed();
         } catch (Throwable t) {
-
+            t.printStackTrace();
         }
         System.out.println("around after");
         return obj;
@@ -113,7 +113,7 @@ public class AnnotationHelloWorldAspect {
      * @Order 表示切面的优先级，优先级高的先执行，值越小，优先级越高
      */
     @Before(value = "args(java.lang.String)")
-    @Order(1)
+    @Order(value = 1)
     public void arg() {
         System.out.println("arg not @args");
     }

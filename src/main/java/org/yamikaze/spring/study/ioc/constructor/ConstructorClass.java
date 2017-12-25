@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 构造函数注入数字类型，null, 引用类型，Collection类型
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/18
  */
 public class ConstructorClass {

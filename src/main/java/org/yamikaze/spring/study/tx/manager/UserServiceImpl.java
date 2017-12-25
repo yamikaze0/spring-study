@@ -12,7 +12,7 @@ import org.yamikaze.spring.study.tx.UserService;
 
 /**
  * 编程式事务
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 @Service

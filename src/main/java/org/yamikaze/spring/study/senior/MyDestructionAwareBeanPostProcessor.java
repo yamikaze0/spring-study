@@ -5,7 +5,7 @@ import org.springframework.beans.factory.config.DestructionAwareBeanPostProcesso
 import org.springframework.stereotype.Component;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 @Component

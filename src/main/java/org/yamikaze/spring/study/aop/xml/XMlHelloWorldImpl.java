@@ -3,7 +3,7 @@ package org.yamikaze.spring.study.aop.xml;
 import org.yamikaze.spring.study.aop.HelloWorld;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/19
  */
 public class XMlHelloWorldImpl implements HelloWorld{

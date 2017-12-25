@@ -4,7 +4,7 @@ import org.yamikaze.spring.study.ioc.SayHelloService;
 import org.yamikaze.spring.study.ioc.impl.SayHelloServiceImpl;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/18
  */
 public class SayHelloFactory {

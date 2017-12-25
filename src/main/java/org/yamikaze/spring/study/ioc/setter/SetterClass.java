@@ -5,7 +5,7 @@ import org.yamikaze.spring.study.ioc.SayHelloService;
 import java.util.List;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/18
  */
 public class SetterClass {

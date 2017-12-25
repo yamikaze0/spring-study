@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.yamikaze.model.User;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 @RunWith(SpringJUnit4ClassRunner.class)

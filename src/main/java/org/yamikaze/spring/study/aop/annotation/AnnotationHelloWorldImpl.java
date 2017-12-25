@@ -6,7 +6,7 @@ import org.yamikaze.spring.study.aop.TestAnnotation;
 import org.yamikaze.spring.study.aop.WithinAnnotation;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/19
  */
 @Service("annotationHelloWorldService")

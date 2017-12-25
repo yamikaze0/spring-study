@@ -15,7 +15,7 @@ import java.lang.reflect.Proxy;
 
 import static org.junit.Assert.*;
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/23
  */
 @RunWith(SpringJUnit4ClassRunner.class)

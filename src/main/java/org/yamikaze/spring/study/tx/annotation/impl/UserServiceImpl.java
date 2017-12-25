@@ -8,7 +8,7 @@ import org.yamikaze.model.User;
 import org.yamikaze.spring.study.tx.UserService;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 @Service

@@ -3,7 +3,7 @@ package org.yamikaze.spring.study.ioc.impl;
 import org.yamikaze.spring.study.ioc.SayHelloService;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/18
  */
 public class SayHelloServiceImpl implements SayHelloService {

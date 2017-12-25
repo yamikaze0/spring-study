@@ -3,7 +3,7 @@ package org.yamikaze.spring.study.tx;
 import org.yamikaze.model.User;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/21
  */
 public interface UserService {

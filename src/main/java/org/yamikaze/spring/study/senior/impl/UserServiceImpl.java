@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/20
  */
 @Service("userService")

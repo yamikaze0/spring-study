@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.yamikaze.spring.study.ioc.SayHelloService;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/18
  */
 @RunWith(SpringJUnit4ClassRunner.class)

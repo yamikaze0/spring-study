@@ -7,7 +7,7 @@ import org.yamikaze.spring.study.senior.impl.UserServiceImpl;
 
 /**
  * 扩展至BeanPostProcessor,在填充bean完成后执行
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/20
  */
 @Component

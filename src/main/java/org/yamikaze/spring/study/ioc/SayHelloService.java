@@ -1,7 +1,7 @@
 package org.yamikaze.spring.study.ioc;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/18
  */
 public interface SayHelloService {

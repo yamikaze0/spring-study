@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/20
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,7 +27,7 @@ public class AnnotationAopTest {
         String result = helloWorld.returnHello("yamikaze");
         //为空,改正切点方法返回值为Object
         System.out.println(result);
-        /** execution( pattern)
+        /* execution( pattern)
          *  pattern                           mean
          *
          *  public * *(..)                    任何公共方法的执行

@@ -1,7 +1,7 @@
 package org.yamikaze.spring.study.aop.xml;
 
 /**
- * @author qinluo
+ * @author yamikaze
  * @date 2017/12/19
  */
 public class XmlAopAspect {
