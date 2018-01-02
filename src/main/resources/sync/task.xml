@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="org.yamikaze.spring.study.sync.task"/>
+
+    <!--等同于executor.xml中的配置-->
+    <task:executor id="taskExecutor" pool-size="10" rejection-policy="ABORT"/>
+    <task:scheduler id="taskScheduler" pool-size="10"/>
+
+    <task:scheduled-tasks>
+        <task:scheduled ref="springTask" method="test01" cron="*/30 * * * * ?"/>
+        <task:scheduled ref="springTask" method="test02" cron="*/30 * * * * ?"/>
+
+        <!-- 这种情况只能添加public修饰的方法 private、protected、default无法添加
+        <task:scheduled ref="springTask" method="test03" cron="*/1 * * * * * ?"/>
+        <task:scheduled ref="springTask" method="test04" cron="*/1 * * * * * ?"/>
+        <task:scheduled ref="springTask" method="test05" cron="*/1 * * * * * ?"/>
+        -->
+    </task:scheduled-tasks>
+</beans>
