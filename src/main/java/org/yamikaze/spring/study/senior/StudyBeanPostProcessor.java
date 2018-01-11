@@ -14,7 +14,7 @@ import org.yamikaze.spring.study.senior.impl.UserServiceImpl;
 public class StudyBeanPostProcessor implements BeanPostProcessor{
 
     /**
-     * 在populateBean方法后调用
+     * 在populateBean方法后调用，还未发生依赖注入
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -26,6 +26,9 @@ public class StudyBeanPostProcessor implements BeanPostProcessor{
     }
 
 
+    /**
+     * 在populateBean方法后进行调用，已经完成依赖注入
+     */
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         System.out.println(beanName + " :" + bean.getClass().getSimpleName());

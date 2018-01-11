@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService{
     public boolean addUser(User user) {
         boolean flag = userDao.save(user) == 1;
         if(flag) {
+            System.out.println("before throw exception ... ");
             throw new RuntimeException();
         }
         return false;

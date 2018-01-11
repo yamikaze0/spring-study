@@ -11,10 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyDestructionAwareBeanPostProcessor implements DestructionAwareBeanPostProcessor {
 
+    /**
+     * 所有bean实例销毁前都会执行这个方法
+     */
     @Override
     public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {
         //执行销毁方法前的处理
-        System.out.println("before destroy method...");
+        System.out.println("before destroy method... bean is " + bean.getClass().getName());
     }
 
     @Override

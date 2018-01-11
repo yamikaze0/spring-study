@@ -23,9 +23,12 @@ public class UserServiceImpl implements UserService{
         return text;
     }
 
+    /**
+     * init方法将会在实例化、初始化后调用
+     */
     @PostConstruct
     public void init() {
-        System.out.println("I'm init...");
+        System.out.println("I'm init..." + text);
     }
 
     @PreDestroy
