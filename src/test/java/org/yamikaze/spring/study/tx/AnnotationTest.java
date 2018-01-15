@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.Transactional;
 import org.yamikaze.model.User;
 
 /**
@@ -15,6 +17,8 @@ import org.yamikaze.model.User;
  * @date 2017/12/21
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@TransactionConfiguration(transactionManager = "tx")
+@Transactional
 @ContextConfiguration("classpath:tx-context-annotation.xml")
 public class AnnotationTest {
 
