@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/user"
+        xmlns:tns="http://www.example.org/user"
+        elementFormDefault="qualified">
+    <element name="user">
+        <complexType>
+            <sequence maxOccurs="unbounded">
+                <element name="userProperty">
+                    <complexType>
+                        <attribute name="name"/>
+                            <attribute name="ref"/>
+                            <attribute name="value"/>
+                    </complexType>
+                </element>
+            </sequence>
+            <attribute name="clz"/>
+            <attribute name="scope"/>
+            <attribute name="id"/>
+        </complexType>
+    </element>
+
+</schema>

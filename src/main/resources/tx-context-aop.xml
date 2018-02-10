@@ -18,7 +18,7 @@
     <import resource="classpath:dataSource.xml"/>
     <!--1、配置事务管理器-->
     <bean id="tx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="MybatisDataSource"/>
     </bean>
 
     <!--2、配置事务管理器属性，哪些方法需要加上事务，事务传播级别，是否是只读的-->

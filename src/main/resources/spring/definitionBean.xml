@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:user="http://www.example.org/user"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.example.org/user
+        http://www.example.org/user/user.xsd">
+
+    <context:annotation-config/>
+    <user:user id="user" scope="prototype" clz="org.yamikaze.spring.study.expand.User">
+        <user:userProperty name="username" value="ccsb"/>
+        <user:userProperty name="password" value="wssb"/>
+        <user:userProperty name="sex" value="woman"/>
+        <user:userProperty name="address" value="青蛙国青蛙大道250号"/>
+        <user:userProperty name="phone" value="54250594250"/>
+    </user:user>
+
+</beans>

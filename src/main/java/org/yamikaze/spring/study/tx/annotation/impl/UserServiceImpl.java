@@ -21,8 +21,6 @@ public class UserServiceImpl implements UserService{
      * 1、当有多个事务管理器时要指定使用哪个事务管理器，否则发生异常时不会进行数据回滚
      * 2、@Transactional注解默认是RuntimeException会进行回滚，而Exception不会进行
      *    所以要加上rollbackFor以方便在发生Exception时进行数据回滚
-     * @param user
-     * @return
      */
     @Transactional(rollbackFor = Exception.class, value = "tx")
     @Override
