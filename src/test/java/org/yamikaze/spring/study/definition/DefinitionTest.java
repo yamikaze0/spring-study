@@ -25,4 +25,10 @@ public class DefinitionTest {
         System.out.println(user.getUsername());
         System.out.println(user);
     }
+
+    @Test
+    public void test02() {
+        User user = context.getBean(User.class);
+        System.out.println(user.getUsername());
+    }
 }
