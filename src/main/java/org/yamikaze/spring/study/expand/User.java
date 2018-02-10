@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author yamikaze
  * @date 2018/2/10
  */
+@SuppressWarnings("unused")
 public class User {
 
     private String username;
