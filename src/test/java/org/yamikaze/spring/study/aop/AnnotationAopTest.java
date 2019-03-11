@@ -2,7 +2,9 @@ package org.yamikaze.spring.study.aop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -15,11 +17,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class AnnotationAopTest {
 
     @Autowired
+    @Qualifier("annotationHelloWorldService")
     private HelloWorld helloWorld;
 
     @Test
     public void testA() {
         helloWorld.sayHello();
+    }
+
+    @Test
+    public void testB() {
+        helloWorld.abc();
     }
 
     @Test
@@ -104,4 +112,14 @@ public class AnnotationAopTest {
     public void testArg() {
         helloWorld.argsWithAnnotation(helloWorld);
     }
+
+    @Test
+    public void testGetTargetClass() {
+        System.out.println(helloWorld.getClass());
+        System.out.println("1111" + AopUtils.isAopProxy(helloWorld));
+        System.out.println("2" + AopUtils.isCglibProxy(helloWorld));
+        System.out.println(AopUtils.getTargetClass(helloWorld).getName());
+        helloWorld.returnHello("yamikaze");
+    }
+
 }

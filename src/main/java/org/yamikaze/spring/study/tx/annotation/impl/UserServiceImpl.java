@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
      * 2、@Transactional注解默认是RuntimeException会进行回滚，而Exception不会进行
      *    所以要加上rollbackFor以方便在发生Exception时进行数据回滚
      */
-    @Transactional(rollbackFor = Exception.class, value = "tx")
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean addUser(User user) {
         boolean flag = userDao.save(user) == 1;

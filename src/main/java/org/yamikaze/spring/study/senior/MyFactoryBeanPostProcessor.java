@@ -15,8 +15,6 @@ public class MyFactoryBeanPostProcessor implements BeanFactoryPostProcessor{
 
     /**
      * 支持在bean的元数据定义加入东西
-     * @param beanFactory
-     * @throws BeansException
      */
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {

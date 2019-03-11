@@ -3,22 +3,23 @@ package org.yamikaze.spring.study.tx;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.Transactional;
 import org.yamikaze.model.User;
+import org.yamikaze.spring.study.tx.annotation.impl.TestAddUser;
+
+import javax.annotation.Resource;
 
 /**
  * @author yamikaze
  * @date 2017/12/21
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@TransactionConfiguration(transactionManager = "tx")
-@Transactional
 @ContextConfiguration("classpath:tx-context-annotation.xml")
 public class AnnotationTest {
 
@@ -53,5 +54,16 @@ public class AnnotationTest {
     @Test
     public void testTx() {
         System.out.println(tx == null ? 0 : tx.getClass().getName());
+    }
+
+    @Resource
+    private TestAddUser addUser;
+    private static Logger logger = LoggerFactory.getLogger(AnnotationTest.class);
+
+    @Rollback(false)
+    @Test
+    public void addUser() {
+        addUser.addUser(user);
+        logger.info("add completed ! ");
     }
 }

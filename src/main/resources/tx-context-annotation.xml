@@ -21,7 +21,7 @@
     <!--2、打开annotation代理 默认使用JDK动态代理
         可以指定proxy-target-class = "true" 表示使用cglib代理
     -->
-    <tx:annotation-driven/>
+    <tx:annotation-driven transaction-manager="tx0"/>
 
     <bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">

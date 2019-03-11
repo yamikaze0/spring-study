@@ -2,6 +2,7 @@ package org.yamikaze.spring.study.aop.annotation;
 
 import org.springframework.stereotype.Service;
 import org.yamikaze.spring.study.aop.HelloWorld;
+import org.yamikaze.spring.study.aop.PrivateTest;
 import org.yamikaze.spring.study.aop.TestAnnotation;
 import org.yamikaze.spring.study.aop.WithinAnnotation;
 
@@ -15,9 +16,15 @@ import org.yamikaze.spring.study.aop.WithinAnnotation;
 public class AnnotationHelloWorldImpl implements HelloWorld{
 
     @Override
-
     public void sayHello() {
         System.out.println("Hello annotation");
+        abc();
+    }
+
+    @PrivateTest
+    @Override
+    public void abc() {
+        System.out.println(11111);
     }
 
     @Override

@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <spring.version>4.1.9.RELEASE</spring.version>
+        <spring.version>4.3.8.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <!--junit jar end-->
@@ -26,6 +26,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
@@ -121,6 +127,11 @@
         </dependency>
         <!--disconf jar end-->
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
+        </dependency>
     </dependencies>
 
     <build>

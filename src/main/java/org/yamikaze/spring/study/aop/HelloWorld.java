@@ -12,6 +12,11 @@ public interface HelloWorld {
     void sayHello();
 
     /**
+     * 测试切面
+     */
+    void abc();
+
+    /**
      * return
      * @param name
      * @return

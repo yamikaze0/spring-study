@@ -14,6 +14,11 @@ public class XMlHelloWorldImpl implements HelloWorld{
     }
 
     @Override
+    public void abc() {
+
+    }
+
+    @Override
     public String returnHello(String name) {
         return null;
     }

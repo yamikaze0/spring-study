@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="org.yamikaze.spring.study.cache.service"/>
+
+    <bean id="cacheManager" class="org.springframework.cache.support.CompositeCacheManager">
+        <property name="cacheManagers">
+            <list>
+                <ref bean="commonCacheManager" />
+                <ref bean="basicInfoCacheManager" />
+            </list>
+        </property>
+        <!--
+         当我们调用cacheManager.getCache(cacheName) 时，会先从第一个cacheManager中查找有没有cacheName的cache，
+         如果没有接着查找第二个，如果最后找不到，因为fallbackToNoOpCache=true，那么将返回一个NOP的Cache否则返回null。
+         -->
+        <property name="fallbackToNoOpCache" value="true"/>
+    </bean>
+
+    <bean id="basicInfoCacheManager" class="org.springframework.cache.guava.GuavaCacheManager">
+        <!-- 缓存配置  时间配置参考DurationParser d=TimeUnit.DAYS; h=TimeUnit.HOURS; m=TimeUnit.MINUTES; s=TimeUnit.SECONDS -->
+        <!-- expireAfterAccess(long, TimeUnit)  这个方法是根据某个键值对最后一次访问之后多少时间后移除
+　　　　	expireAfterWrite(long, TimeUnit)  这个方法是根据某个键值对被创建或值被替换后多少时间移除 -->
+        <property name="cacheSpecification" value="expireAfterWrite=5h,expireAfterAccess=2s"/>
+        <property name="cacheNames">
+            <list>
+                <value>test_cache</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="commonCacheManager" class="org.springframework.cache.guava.GuavaCacheManager">
+        <!-- 缓存配置  时间配置参考DurationParser d=TimeUnit.DAYS; h=TimeUnit.HOURS; m=TimeUnit.MINUTES; s=TimeUnit.SECONDS -->
+        <!-- expireAfterAccess(long, TimeUnit)  这个方法是根据某个键值对最后一次访问之后多少时间后移除
+　　　　	expireAfterWrite(long, TimeUnit)  这个方法是根据某个键值对被创建或值被替换后多少时间移除 -->
+        <property name="cacheSpecification" value="expireAfterWrite=30s"/>
+        <property name="cacheNames">
+            <list>
+                <value>test_cache2</value>
+            </list>
+        </property>
+    </bean>
+
+    <cache:annotation-driven />
+</beans>

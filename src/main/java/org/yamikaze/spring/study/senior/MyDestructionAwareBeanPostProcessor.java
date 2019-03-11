@@ -29,4 +29,9 @@ public class MyDestructionAwareBeanPostProcessor implements DestructionAwareBean
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         return bean;
     }
+
+    @Override
+    public boolean requiresDestruction(Object o) {
+        return false;
+    }
 }

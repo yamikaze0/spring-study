@@ -24,6 +24,32 @@ public class AnnotationHelloWorldAspect {
 
     }
 
+    @Pointcut("@annotation(org.yamikaze.spring.study.aop.PrivateTest)")
+    public void privateTest() {
+
+    }
+
+    @Around(value = "privateTest()")
+    public Object privateTestAround(ProceedingJoinPoint pjp) {
+        //pjp 表示方法对象
+        System.out.println("I'm around");
+        Object obj = null;
+        try {
+            /*
+             *  如果方法有返回值，需要返回，这个切点的方法也要返回相应的值，否则返回null
+             *  如果返回值类型不一致，ClassCastException
+             *  但是如果这儿返回了，后面就不会在运行了
+             *  所以不能直接return
+             */
+            obj = pjp.proceed();
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+        System.out.println("I'm around after");
+        return obj;
+
+    }
+
     /**
      * 这儿的value可以直接是pointcut里面的东西，但是如果同一个pointcut需要复用
      * 则最好写成上面那种形式
@@ -54,6 +80,7 @@ public class AnnotationHelloWorldAspect {
              *  所以不能直接return
              */
             obj = pjp.proceed();
+            System.out.println("xxxxx" + pjp.getTarget().getClass().getName());
         } catch (Throwable t) {
             t.printStackTrace();
         }

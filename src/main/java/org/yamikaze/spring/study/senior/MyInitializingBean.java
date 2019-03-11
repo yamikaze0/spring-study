@@ -15,7 +15,7 @@ public class MyInitializingBean implements InitializingBean {
     private String username;
 
     /**
-     * 在初始化后调用，调用顺序晚于BeanPostProcessor
+     * 在实例化后调用，调用顺序晚于BeanPostProcessor
      */
     @Override
     public void afterPropertiesSet() throws Exception {
